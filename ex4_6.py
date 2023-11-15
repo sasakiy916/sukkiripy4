@@ -1,21 +1,22 @@
 # 1
 numbers = [1, 1]
-while True:
-    next = numbers[-1] + numbers[-2]
-    if next > 1000:
-        break
-    numbers.append(next)
+data = sum(numbers)
+count = 2
+while data <= 1000:
+    numbers.append(data)
+    data = data + numbers[count - 1]
+    count += 1
 print(numbers)
 
 # 2
 ratios = []
-for num in range(len(numbers)):
-    if num+1 >= len(numbers):
+for count in range(len(numbers)):
+    if count == len(numbers)-1:
         break
-    ratios.append(numbers[num+1] / numbers[num])
+    ratios.append(numbers[count+1] / numbers[count])
 print(ratios)
 
 #3
-for n in range(len(ratios)):
-    ratios[n] = int(ratios[n] * 1000) / 1000
+for count in range(len(ratios)):
+    ratios[count] = int(ratios[count] * 1000) / 1000
 print(ratios)
