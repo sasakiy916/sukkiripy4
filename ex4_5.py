@@ -3,7 +3,7 @@ temp = [7.8, 9.1, 10.2, 11.0, 12.5, 12.4, 14.3, 13.8, 12.9, 12.4]
 # temp = []
 # hour = 8
 # for h in range(10):
-#     t = input(f"{hour}時の気温(℃)を入力 >>")
+#     t = float(input(f"{hour}時の気温(℃)を入力 >>"))
 #     temp.append(t)
 #     hour += 1
 
@@ -23,8 +23,10 @@ print(temp_new)
 
 # 4
 total = 0
+error = 0
 for data in temp_new:
     if isinstance(data,str):
+        error += 1
         continue
     total += data
-print(f"平均気温：{total / (len(temp_new) - 1):.2f}")
+print(f"平均気温：{total / (len(temp_new) - error):.2f}")
